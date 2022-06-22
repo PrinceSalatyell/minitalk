@@ -6,7 +6,7 @@
 #    By: josanton <josanton@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 16:31:17 by josanton          #+#    #+#              #
-#    Updated: 2022/06/22 15:50:29 by josanton         ###   ########.fr        #
+#    Updated: 2022/06/22 17:03:09 by josanton         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,18 +28,18 @@ RM		=	rm -f
 
 ${SNAME}:	${SSRC}
 			${MAKE} -C ./libft
-			${GCC} ${SSRC}  -o ${SNAME}
+			${GCC} ${^}  -o ${@}
 
 ${CNAME}:	${CSRC}
 			${MAKE} -C ./libft
-			${GCC} ${CSRC} -o ${CNAME}
+			${GCC} ${^} -o ${@}
 
 submodule:
 			@git submodule update --init --recursive
 
 all:		${SNAME} ${CNAME} submodule
 
-clean:		
+clean:
 			$(MAKE) clean -C ./libft
 
 fclean:		clean
