@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: josanton <josanton@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/12 16:31:17 by josanton          #+#    #+#              #
-#    Updated: 2022/05/13 21:23:34 by marvin           ###   ########.fr        #
+#    Updated: 2022/06/22 15:50:29 by josanton         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,10 @@ ${CNAME}:	${CSRC}
 			${MAKE} -C ./libft
 			${GCC} ${CSRC} -o ${CNAME}
 
-all:		${SNAME} ${CNAME}
+submodule:
+			@git submodule update --init --recursive
+
+all:		${SNAME} ${CNAME} submodule
 
 clean:		
 			$(MAKE) clean -C ./libft
@@ -46,4 +49,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re submodule
