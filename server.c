@@ -30,7 +30,7 @@ int	main(void)
 	int					pid;
 	struct sigaction	sa;
 
-	sa.sa_mask = 0;
+	sigemptyset(&sa.sa_mask);
 	pid = getpid();
 	ft_printf("%d\n", pid);
 	sa.sa_flags = SA_RESTART;
